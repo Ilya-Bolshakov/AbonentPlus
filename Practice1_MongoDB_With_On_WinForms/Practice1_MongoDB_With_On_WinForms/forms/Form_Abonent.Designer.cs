@@ -34,6 +34,9 @@
             this.btn_Delete = new System.Windows.Forms.Button();
             this.cb_Filters = new System.Windows.Forms.ComboBox();
             this.tb_FilterValue = new System.Windows.Forms.TextBox();
+            this.label_Filter = new System.Windows.Forms.Label();
+            this.label_SelectFilter = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +54,7 @@
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(12, 263);
+            this.btn_Edit.Location = new System.Drawing.Point(22, 322);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(107, 34);
             this.btn_Edit.TabIndex = 1;
@@ -61,7 +64,7 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(314, 263);
+            this.btn_Add.Location = new System.Drawing.Point(22, 263);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(107, 34);
             this.btn_Add.TabIndex = 2;
@@ -71,9 +74,9 @@
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(114, 364);
+            this.btn_Delete.Location = new System.Drawing.Point(22, 378);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(88, 31);
+            this.btn_Delete.Size = new System.Drawing.Size(107, 34);
             this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "Delete";
             this.btn_Delete.UseVisualStyleBackColor = true;
@@ -95,11 +98,41 @@
             this.tb_FilterValue.TabIndex = 5;
             this.tb_FilterValue.TextChanged += new System.EventHandler(this.tb_FilterValue_TextChanged);
             // 
+            // label_Filter
+            // 
+            this.label_Filter.AutoSize = true;
+            this.label_Filter.Location = new System.Drawing.Point(406, 280);
+            this.label_Filter.Name = "label_Filter";
+            this.label_Filter.Size = new System.Drawing.Size(74, 13);
+            this.label_Filter.TabIndex = 6;
+            this.label_Filter.Text = "Фильтрация:";
+            // 
+            // label_SelectFilter
+            // 
+            this.label_SelectFilter.AutoSize = true;
+            this.label_SelectFilter.Location = new System.Drawing.Point(500, 244);
+            this.label_SelectFilter.Name = "label_SelectFilter";
+            this.label_SelectFilter.Size = new System.Drawing.Size(59, 13);
+            this.label_SelectFilter.TabIndex = 7;
+            this.label_SelectFilter.Text = "Select filter";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(645, 244);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Enter filter value";
+            // 
             // Form_Abonent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_SelectFilter);
+            this.Controls.Add(this.label_Filter);
             this.Controls.Add(this.tb_FilterValue);
             this.Controls.Add(this.cb_Filters);
             this.Controls.Add(this.btn_Delete);
@@ -122,6 +155,9 @@
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.ComboBox cb_Filters;
         private System.Windows.Forms.TextBox tb_FilterValue;
+        private System.Windows.Forms.Label label_Filter;
+        private System.Windows.Forms.Label label_SelectFilter;
+        private System.Windows.Forms.Label label1;
     }
 }
 

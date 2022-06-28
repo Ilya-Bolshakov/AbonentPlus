@@ -14,14 +14,12 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
     public partial class Form_Abonent : System.Windows.Forms.Form
     {
         private readonly MongoDBContext context;
-        private BindingSource _bindList;
+        private BindingList<Abonent> _bindList;
         public Form_Abonent()
         {
             InitializeComponent();
             context = MongoDBContext.GetObject();
-            _bindList = new BindingSource();
-            _bindList.Filter = "FlatNo";
-            _bindList.DataSource = context.Load_Abonent();
+            _bindList = context.Load_Abonent();
             dataGridView.DataSource = _bindList;
 
             // формируем список атрибутов для фильтрации

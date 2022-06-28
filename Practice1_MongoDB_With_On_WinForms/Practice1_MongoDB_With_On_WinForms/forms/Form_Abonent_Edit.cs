@@ -17,10 +17,10 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
         private readonly MongoDBContext _context;
         private BindingList<Abonent> _bindingList;
         bool _isCreate;
-        public Form_Abonent_Edit(Abonent abonent, MongoDBContext context, bool create, BindingSource binList)
+        public Form_Abonent_Edit(Abonent abonent, MongoDBContext context, bool create, BindingList<Abonent> binList)
         {
             InitializeComponent();
-            //_bindingList = binList;
+            _bindingList = binList;
             _isCreate = create;
             _context = context;
             _abonent = abonent;
@@ -46,13 +46,15 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
                 {
                     _bindingList.Add(_abonent);
                     _context.Insert_Abonent_Information(_abonent);
+                    this.Close();
                 }
                 else
                 {
                     _context.Update_Abonent_Information(_abonent);
+                    this.Close();
                 }
             }
-            this.Close();
+            
         }
 
         private void EditAbonent(Abonent abonent)
@@ -68,6 +70,94 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
         private void Form_Abonent_Edit_Load(object sender, EventArgs e)
         {
             label_ID.Visible = tb_ID.Visible = _isCreate;
+        }
+
+        private void tb_ID_Validating(object sender, CancelEventArgs e)
+        {
+            if (_isCreate)
+            {
+                var abonents = _context.Load_Abonent();
+                if (abonents.Any(a => a.Id == tb_ID.Text))
+                {
+                    errorProvider.SetError(tb_ID, "Такое значение поля ID уже присутствует!");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    errorProvider.SetError(tb_ID, String.Empty);
+                    e.Cancel = false;
+                }
+            }    
+        }
+
+        private void tb_Phone_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Phone.Text.All(c => char.IsDigit(c)))
+            {
+                errorProvider.SetError(tb_Phone, "В телефоне не могут присутстовать символы кроме цифр");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Phone, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void tb_Street_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Street.Text.All(c => char.IsLetter(c)))
+            {
+                errorProvider.SetError(tb_Street, "В адресе не могут присутстовать символы кроме цифр или букв");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Street, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void tb_House_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_House.Text.All(c => char.IsDigit(c)))
+            {
+                errorProvider.SetError(tb_House, "В номере дома не могут присутстовать символы кроме цифр");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_House, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void tb_Flat_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Flat.Text.All(c => char.IsDigit(c)))
+            {
+                errorProvider.SetError(tb_Flat, "В номере этажа не могут присутстовать символы кроме цифр");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Flat, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void tb_Fio_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Fio.Text.All(c => char.IsLetter(c) || c.Equals('.') || c.Equals(' ')))
+            {
+                errorProvider.SetError(tb_Fio, "В фио могут быть только буквы и символ '.'");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Fio, String.Empty);
+                e.Cancel = false;
+            }
         }
     }
 }

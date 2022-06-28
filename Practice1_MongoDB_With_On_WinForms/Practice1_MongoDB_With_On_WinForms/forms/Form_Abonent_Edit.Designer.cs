@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tb_Fio = new System.Windows.Forms.TextBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.label_Phone = new System.Windows.Forms.Label();
             this.tb_ID = new System.Windows.Forms.TextBox();
             this.label_ID = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Fio
@@ -50,6 +53,7 @@
             this.tb_Fio.Name = "tb_Fio";
             this.tb_Fio.Size = new System.Drawing.Size(194, 20);
             this.tb_Fio.TabIndex = 0;
+            this.tb_Fio.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Fio_Validating);
             // 
             // btn_Save
             // 
@@ -77,6 +81,7 @@
             this.tb_Street.Name = "tb_Street";
             this.tb_Street.Size = new System.Drawing.Size(194, 20);
             this.tb_Street.TabIndex = 3;
+            this.tb_Street.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Street_Validating);
             // 
             // tb_Flat
             // 
@@ -84,6 +89,7 @@
             this.tb_Flat.Name = "tb_Flat";
             this.tb_Flat.Size = new System.Drawing.Size(194, 20);
             this.tb_Flat.TabIndex = 4;
+            this.tb_Flat.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Flat_Validating);
             // 
             // tb_House
             // 
@@ -91,6 +97,7 @@
             this.tb_House.Name = "tb_House";
             this.tb_House.Size = new System.Drawing.Size(194, 20);
             this.tb_House.TabIndex = 5;
+            this.tb_House.Validating += new System.ComponentModel.CancelEventHandler(this.tb_House_Validating);
             // 
             // tb_Phone
             // 
@@ -98,6 +105,7 @@
             this.tb_Phone.Name = "tb_Phone";
             this.tb_Phone.Size = new System.Drawing.Size(194, 20);
             this.tb_Phone.TabIndex = 6;
+            this.tb_Phone.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Phone_Validating);
             // 
             // label_Fio
             // 
@@ -150,6 +158,7 @@
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(194, 20);
             this.tb_ID.TabIndex = 12;
+            this.tb_ID.Validating += new System.ComponentModel.CancelEventHandler(this.tb_ID_Validating);
             // 
             // label_ID
             // 
@@ -161,10 +170,15 @@
             this.label_ID.Text = "ID:";
             this.label_ID.Visible = false;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // Form_Abonent_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(688, 374);
             this.Controls.Add(this.label_ID);
             this.Controls.Add(this.tb_ID);
@@ -183,6 +197,7 @@
             this.Name = "Form_Abonent_Edit";
             this.Text = "Form_Abonent_Edit";
             this.Load += new System.EventHandler(this.Form_Abonent_Edit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +219,6 @@
         private System.Windows.Forms.Label label_Phone;
         private System.Windows.Forms.TextBox tb_ID;
         private System.Windows.Forms.Label label_ID;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
