@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice1_MongoDB_With_On_WinForms.forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Practice1_MongoDB_With_On_WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
+            Application.Run(new Form_Abonent());
         }
     }
 }
