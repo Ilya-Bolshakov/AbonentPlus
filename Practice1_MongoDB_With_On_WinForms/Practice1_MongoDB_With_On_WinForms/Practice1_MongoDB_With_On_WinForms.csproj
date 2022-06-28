@@ -134,6 +134,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FiltersOnDataGrid.cs" />
     <Compile Include="forms\Form_Abonent.cs">
       <SubType>Form</SubType>
     </Compile>
