@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace MongoDB_Base
+namespace Practice1_MongoDB_With_On_WinForms
 {
     [Serializable]
     public class SBindingList<T> : BindingList<T>

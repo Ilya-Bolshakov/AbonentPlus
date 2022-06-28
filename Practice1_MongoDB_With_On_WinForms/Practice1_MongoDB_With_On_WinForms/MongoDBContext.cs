@@ -3,9 +3,12 @@ using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Bson;
+using Practice1_MongoDB_With_On_WinForms.models;
 
-namespace MongoDB_Base
+namespace Practice1_MongoDB_With_On_WinForms
 {
+
+    #region OldClasses
     public class Class_Street
     {
         [BsonId]
@@ -22,48 +25,6 @@ namespace MongoDB_Base
             return STREETNM;
         }
     }
-
-    public class Class_Abonent
-    {
-        [BsonId]
-        public ObjectId _id { get; set; }
-
-        [BsonElementAttribute("Id")]
-        public string Id { get; set; }
-
-        [BsonElementAttribute("StreetCD")]
-        public string StreetCD { get; set; }
-
-        [BsonElementAttribute("HouseNo")]
-        public int HouseNo { get; set; }
-
-        [BsonElementAttribute("FlatNo")]
-        public int FlatNo { get; set; }
-
-        [BsonElementAttribute("Fio")]
-        public string Fio { get; set; }
-
-        [BsonElementAttribute("Phone")]
-        public string Phone { get; set; }
-    }
-
-    public class Class_Disrepair
-    {
-        [BsonId]
-        public ObjectId _id { get; set; }
-
-        [BsonElementAttribute("Id")]
-        public int Id { get; set; }
-
-        [BsonElementAttribute("FAILURENM")]
-        public string FAILURENM { get; set; }
-
-        public override string ToString()
-        {
-            return FAILURENM;
-        }
-    }
-
     public class Class_Executor
     {
         [BsonId]
@@ -132,33 +93,6 @@ namespace MongoDB_Base
         public int PayYear { get; set; }
     }
 
-    public class Class_Request
-    {
-        [BsonId]
-        public ObjectId _id { get; set; }
-
-        [BsonElementAttribute("Id")]
-        public int Id { get; set; }
-
-        [BsonElementAttribute("AccountCD")]
-        public string AccountCD { get; set; }
-
-        [BsonElementAttribute("ExecutorCD")]
-        public string ExecutorCD { get; set; }
-
-        [BsonElementAttribute("FailureCD")]
-        public string FailureCD { get; set; }
-
-        [BsonElementAttribute("IncomingDate")]
-        public DateTime IncomingDate { get; set; }
-
-        [BsonElementAttribute("ExecutionDate")]
-        public DateTime ExecutionDate { get; set; }
-
-        [BsonElementAttribute("Executed")]
-        public bool Executed { get; set; }
-    }
-
     public class Class_Services
     {
         [BsonId]
@@ -175,23 +109,25 @@ namespace MongoDB_Base
             return SERVICENM;
         }
     }
+    #endregion
 
-    public class MongoDB_Class
+
+    public class MongoDBContext
     {
         MongoServerSettings Settings_;
         MongoServer server;
         MongoDatabase Database_;
-        public static MongoDB_Class _Obj;
-        public static MongoDB_Class GetObject()
+        private static MongoDBContext _Obj;
+        public static MongoDBContext GetObject()
         {
             if (_Obj == null)
             {
-                _Obj = new MongoDB_Class();
+                _Obj = new MongoDBContext();
             }
             return _Obj;
         }
 
-        public MongoDB_Class()
+        private MongoDBContext()
         {
             Settings_ = new MongoServerSettings();
             Settings_.Server = new MongoServerAddress("localhost", 27017);
@@ -256,27 +192,27 @@ namespace MongoDB_Base
             Collection_.Save(Stu_Doc);
         }
 
-        public SBindingList<Class_Abonent> Load_Abonent()
+        public SBindingList<Abonent> Load_Abonent()
         {
-            var collection = Database_.GetCollection<Class_Abonent>("Abonent");
-            SBindingList<Class_Abonent> doclist = new SBindingList<Class_Abonent>();
-            foreach (Class_Abonent stat in collection.FindAll())
+            var collection = Database_.GetCollection<Abonent>("Abonent");
+            SBindingList<Abonent> doclist = new SBindingList<Abonent>();
+            foreach (Abonent stat in collection.FindAll())
             {
                 doclist.Add(stat);
             }
             return doclist;
         }
 
-        public void Delete_Abonent_Infromation(Class_Abonent _Obj)
+        public void Delete_Abonent_Infromation(Abonent _Obj)
         {
-            MongoCollection<Class_Abonent> Collection_ = Database_.GetCollection<Class_Abonent>("Abonent");
+            MongoCollection<Abonent> Collection_ = Database_.GetCollection<Abonent>("Abonent");
             IMongoQuery Marker = Query.EQ("Id", _Obj.Id);
             Collection_.Remove(Marker);
         }
 
-        public void Insert_Abonent_Information(Class_Abonent _Obj)
+        public void Insert_Abonent_Information(Abonent _Obj)
         {
-            MongoCollection<Class_Abonent> Collection_ = Database_.GetCollection<Class_Abonent>("Abonent");
+            MongoCollection<Abonent> Collection_ = Database_.GetCollection<Abonent>("Abonent");
             BsonDocument Stu_Doc = new BsonDocument {  
                 {  
                     "Id", _Obj.Id
@@ -301,9 +237,9 @@ namespace MongoDB_Base
             Collection_.Insert(Stu_Doc);
         }
 
-        public void Update_Abonent_Information(Class_Abonent _Obj)
+        public void Update_Abonent_Information(Abonent _Obj)
         {
-            MongoCollection<Class_Abonent> Collection_ = Database_.GetCollection<Class_Abonent>("Abonent");
+            MongoCollection<Abonent> Collection_ = Database_.GetCollection<Abonent>("Abonent");
             IMongoQuery Marker = Query.EQ("Id", _Obj.Id);
             IMongoUpdate Update_ = MongoDB.Driver.Builders.Update
                 .Set("StreetCD", _Obj.StreetCD)
@@ -314,9 +250,9 @@ namespace MongoDB_Base
             Collection_.Update(Marker, Update_);
         }
 
-        public void Save_Abonent_Information(Class_Abonent _Obj)
+        public void Save_Abonent_Information(Abonent _Obj)
         {
-            MongoCollection<Class_Abonent> Collection_ = Database_.GetCollection<Class_Abonent>("Abonent");
+            MongoCollection<Abonent> Collection_ = Database_.GetCollection<Abonent>("Abonent");
             BsonDocument Stu_Doc = new BsonDocument()
                 .Add("_id", _Obj._id)
                 .Add("StreetCD", _Obj.StreetCD)
@@ -327,27 +263,27 @@ namespace MongoDB_Base
             Collection_.Save(Stu_Doc);
         }
 
-        public SBindingList<Class_Request> Load_DataRequest()
+        public SBindingList<Request> Load_DataRequest()
         {
-            var collection = Database_.GetCollection<Class_Request>("Request");
-            SBindingList<Class_Request> doclist = new SBindingList<Class_Request>();
-            foreach (Class_Request stat in collection.FindAll())
+            var collection = Database_.GetCollection<Request>("Request");
+            SBindingList<Request> doclist = new SBindingList<Request>();
+            foreach (Request stat in collection.FindAll())
             {
                 doclist.Add(stat);
             }
             return doclist;
         }
 
-        public void Delete_Request_Infromation(Class_Request _Obj)
+        public void Delete_Request_Infromation(Request _Obj)
         {
-            MongoCollection<Class_Request> Collection_ = Database_.GetCollection<Class_Request>("Request");
+            MongoCollection<Request> Collection_ = Database_.GetCollection<Request>("Request");
             IMongoQuery Marker = Query.EQ("Id", _Obj.Id);
             Collection_.Remove(Marker);
         }
 
-        public void Insert_Request_Information(Class_Request _Obj)
+        public void Insert_Request_Information(Request _Obj)
         {
-            MongoCollection<Class_Request> Collection_ = Database_.GetCollection<Class_Request>("Request");
+            MongoCollection<Request> Collection_ = Database_.GetCollection<Request>("Request");
             BsonDocument Stu_Doc = new BsonDocument {  
                 {  
                     "Id", _Obj.Id
@@ -375,9 +311,9 @@ namespace MongoDB_Base
             Collection_.Insert(Stu_Doc);
         }
 
-        public void Update_Request_Information(Class_Request _Obj)
+        public void Update_Request_Information(Request _Obj)
         {
-            MongoCollection<Class_Request> Collection_ = Database_.GetCollection<Class_Request>("Request");
+            MongoCollection<Request> Collection_ = Database_.GetCollection<Request>("Request");
             IMongoQuery Marker = Query.EQ("Id", _Obj.Id);
 
             IMongoUpdate Update_ = MongoDB.Driver.Builders.Update
@@ -389,9 +325,9 @@ namespace MongoDB_Base
             Collection_.Update(Marker, Update_);
         }
 
-        public void Save_Request_Information(Class_Request _Obj)
+        public void Save_Request_Information(Request _Obj)
         {
-            MongoCollection<Class_Request> Collection_ = Database_.GetCollection<Class_Request>("Request");
+            MongoCollection<Request> Collection_ = Database_.GetCollection<Request>("Request");
             BsonDocument Stu_Doc = new BsonDocument()
                 .Add("_id", _Obj._id)
                 .Add("ExecutorCD", _Obj.ExecutorCD)
@@ -649,27 +585,27 @@ namespace MongoDB_Base
             Collection_.Save(Stu_Doc);
         }
 
-        public SBindingList<Class_Disrepair> Load_DataDisrepair()
+        public SBindingList<Disrepair> Load_DataDisrepair()
         {
-            var collection = Database_.GetCollection<Class_Disrepair>("Disrepair");
-            SBindingList<Class_Disrepair> doclist = new SBindingList<Class_Disrepair>();
-            foreach (Class_Disrepair stat in collection.FindAll())
+            var collection = Database_.GetCollection<Disrepair>("Disrepair");
+            SBindingList<Disrepair> doclist = new SBindingList<Disrepair>();
+            foreach (Disrepair stat in collection.FindAll())
             {
                 doclist.Add(stat);
             }
             return doclist;
         }
 
-        public void Delete_Disrepair_Infromation(Class_Disrepair _Obj)
+        public void Delete_Disrepair_Infromation(Disrepair _Obj)
         {
-            MongoCollection<Class_Disrepair> Collection_ = Database_.GetCollection<Class_Disrepair>("Disrepair");
+            MongoCollection<Disrepair> Collection_ = Database_.GetCollection<Disrepair>("Disrepair");
             IMongoQuery Marker = Query.EQ("Id", _Obj.Id);
             Collection_.Remove(Marker);
         }
 
-        public void Insert_Disrepair_Information(Class_Disrepair _Obj)
+        public void Insert_Disrepair_Information(Disrepair _Obj)
         {
-            MongoCollection<Class_Disrepair> Collection_ = Database_.GetCollection<Class_Disrepair>("Disrepair");
+            MongoCollection<Disrepair> Collection_ = Database_.GetCollection<Disrepair>("Disrepair");
             BsonDocument Stu_Doc = new BsonDocument {  
                 {  
                     "Id", _Obj.Id
@@ -682,18 +618,18 @@ namespace MongoDB_Base
             Collection_.Insert(Stu_Doc);
         }
 
-        public void Update_Disrepair_Information(Class_Disrepair _Obj)
+        public void Update_Disrepair_Information(Disrepair _Obj)
         {
-            MongoCollection<Class_Disrepair> Collection_ = Database_.GetCollection<Class_Disrepair>("Disrepair");
+            MongoCollection<Disrepair> Collection_ = Database_.GetCollection<Disrepair>("Disrepair");
             IMongoQuery Marker = Query.EQ("Id", _Obj.Id);
             IMongoUpdate Update_ = MongoDB.Driver.Builders.Update
                 .Set("FAILURENM", _Obj.FAILURENM);
             Collection_.Update(Marker, Update_);
         }
 
-        public void Save_Disrepair_Information(Class_Disrepair _Obj)
+        public void Save_Disrepair_Information(Disrepair _Obj)
         {
-            MongoCollection<Class_Disrepair> Collection_ = Database_.GetCollection<Class_Disrepair>("Disrepair");
+            MongoCollection<Disrepair> Collection_ = Database_.GetCollection<Disrepair>("Disrepair");
             BsonDocument Stu_Doc = new BsonDocument()
                 .Add("_id", _Obj._id)
                 .Add("FAILURENM", _Obj.FAILURENM);

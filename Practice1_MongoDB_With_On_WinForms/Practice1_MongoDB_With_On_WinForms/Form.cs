@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Practice1_MongoDB_With_On_WinForms
 {
-    public partial class Form1 : Form
+    public partial class Form : System.Windows.Forms.Form
     {
-        public Form1()
+        private readonly MongoDBContext context;
+        public Form()
         {
             InitializeComponent();
+            context = MongoDBContext.GetObject();
         }
     }
 }
