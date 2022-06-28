@@ -24,7 +24,7 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             _bindList.DataSource = context.Load_Abonent();
             dataGridView.DataSource = _bindList;
 
-            // формируем
+            // формируем список атрибутов для фильтрации
             IList<string> vs = new List<string>();
             foreach (DataGridViewColumn item in dataGridView.Columns)
             {

@@ -82,12 +82,6 @@
             // cb_Filters
             // 
             this.cb_Filters.FormattingEnabled = true;
-            this.cb_Filters.Items.AddRange(new object[] {
-            "Лицевой счет",
-            "Улица",
-            "Дом",
-            "Квартира",
-            "ФИО"});
             this.cb_Filters.Location = new System.Drawing.Point(503, 276);
             this.cb_Filters.Name = "cb_Filters";
             this.cb_Filters.Size = new System.Drawing.Size(121, 21);

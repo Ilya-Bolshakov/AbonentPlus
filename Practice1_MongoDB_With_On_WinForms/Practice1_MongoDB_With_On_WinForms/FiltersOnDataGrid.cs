@@ -11,6 +11,15 @@ namespace Practice1_MongoDB_With_On_WinForms
     {
         public static void Filter(this DataGridView dataGrid, int prop, string value, Func<string, string, bool> pred)
         {
+            if (value == String.Empty)
+            {
+                for (int i = 0; i < dataGrid.Rows.Count; i++)
+                {
+                    dataGrid.CurrentCell = null;
+                    dataGrid.Rows[i].Visible = true;
+                }
+            }
+                
             for (int i = 0; i < dataGrid.Rows.Count; i++)
             {
                 //CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dataGrid.DataSource];
