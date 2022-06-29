@@ -28,8 +28,8 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             tb_Fio.Text = abonent.Fio;
             tb_Flat.Text = Convert.ToString(abonent.FlatNo);
             tb_House.Text = Convert.ToString(abonent.HouseNo);
-            tb_Street.Text = Convert.ToString(abonent.StreetCD);
-            tb_Phone.Text = Convert.ToString(abonent.Phone);
+            tb_Street.Text = abonent.StreetCD;
+            tb_Phone.Text = abonent.Phone;
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)

@@ -47,5 +47,40 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
                 return p.ToLower().Contains(v.ToLower());
             });
         }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            Request request = (Request)dataGridView.Rows[dataGridView.CurrentCell.RowIndex].DataBoundItem;
+            if (request != null)
+            {
+                DialogResult result = MessageBox.Show($"Удалить запрос с номером {request.Id} ?",
+                    "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    _bindList.Remove(request);
+                    context.Delete_Request_Infromation(request);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите заявку");
+            }
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            Request request = new Request();
+            Form_Request_Edit add = new Form_Request_Edit(request, context, true, _bindList);
+            add.ShowDialog();
+            dataGridView.Refresh();
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            Request request = (Request)dataGridView.Rows[dataGridView.CurrentCell.RowIndex].DataBoundItem;
+            Form_Request_Edit edit = new Form_Request_Edit(request, context, false, _bindList);
+            edit.ShowDialog();
+            dataGridView.Refresh();
+        }
     }
 }

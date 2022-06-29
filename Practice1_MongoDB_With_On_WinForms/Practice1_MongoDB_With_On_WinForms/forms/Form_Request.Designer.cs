@@ -91,6 +91,7 @@
             this.btn_Delete.TabIndex = 12;
             this.btn_Delete.Text = "Delete request";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Add
             // 
@@ -100,6 +101,7 @@
             this.btn_Add.TabIndex = 11;
             this.btn_Add.Text = "Add new request";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Edit
             // 
@@ -109,6 +111,7 @@
             this.btn_Edit.TabIndex = 10;
             this.btn_Edit.Text = "Edit request";
             this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // dataGridView
             // 

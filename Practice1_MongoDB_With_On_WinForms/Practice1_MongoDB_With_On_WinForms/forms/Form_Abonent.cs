@@ -69,7 +69,6 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             {
                 MessageBox.Show("Выберите абонента");
             }
-
         }
 
         private void tb_FilterValue_TextChanged(object sender, EventArgs e)

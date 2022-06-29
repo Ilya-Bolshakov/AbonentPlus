@@ -14,6 +14,7 @@ namespace Practice1_MongoDB_With_On_WinForms.models
         public int Id { get; set; }
 
         [BsonElementAttribute("FAILURENM")]
+        [DisplayName("Failure")]
         public string FAILURENM { get; set; }
 
         public override string ToString()
