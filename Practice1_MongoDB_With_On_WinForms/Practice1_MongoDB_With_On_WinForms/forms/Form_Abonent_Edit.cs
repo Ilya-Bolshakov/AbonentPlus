@@ -106,7 +106,7 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
 
         private void tb_Street_Validating(object sender, CancelEventArgs e)
         {
-            if (!tb_Street.Text.All(c => char.IsLetter(c)))
+            if (!tb_Street.Text.All(c => char.IsLetter(c) || c.Equals(' ')))
             {
                 errorProvider.SetError(tb_Street, "В адресе не могут присутстовать символы кроме цифр или букв");
                 e.Cancel = true;

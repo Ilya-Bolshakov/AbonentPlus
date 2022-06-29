@@ -101,11 +101,11 @@
             // label_Filter
             // 
             this.label_Filter.AutoSize = true;
-            this.label_Filter.Location = new System.Drawing.Point(406, 280);
+            this.label_Filter.Location = new System.Drawing.Point(434, 284);
             this.label_Filter.Name = "label_Filter";
-            this.label_Filter.Size = new System.Drawing.Size(74, 13);
+            this.label_Filter.Size = new System.Drawing.Size(32, 13);
             this.label_Filter.TabIndex = 6;
-            this.label_Filter.Text = "Фильтрация:";
+            this.label_Filter.Text = "Filter:";
             // 
             // label_SelectFilter
             // 
@@ -140,7 +140,7 @@
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.dataGridView);
             this.Name = "Form_Abonent";
-            this.Text = "Form";
+            this.Text = "Form_Abonent";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

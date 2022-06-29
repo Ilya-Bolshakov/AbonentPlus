@@ -17,7 +17,7 @@ namespace Practice1_MongoDB_With_On_WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Abonent());
+            Application.Run(new Form_Main());
         }
     }
 }

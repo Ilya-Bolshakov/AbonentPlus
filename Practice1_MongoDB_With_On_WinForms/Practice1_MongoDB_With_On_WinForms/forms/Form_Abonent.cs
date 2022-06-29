@@ -26,10 +26,13 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             IList<string> vs = new List<string>();
             foreach (DataGridViewColumn item in dataGridView.Columns)
             {
-                vs.Add(item.Name);
+                vs.Add(item.HeaderText);
             }
             cb_Filters.DataSource = vs;
-            
+
+            dataGridView.AutoResizeColumns();
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
@@ -39,7 +42,6 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             edit.ShowDialog();
 
             dataGridView.Refresh();
-            Console.WriteLine();
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             Abonent abonent = (Abonent)dataGridView.Rows[dataGridView.CurrentCell.RowIndex].DataBoundItem;
             if (abonent != null)
             {
-                DialogResult result = MessageBox.Show("Удалить абонента " + abonent.Fio + "?",
+                DialogResult result = MessageBox.Show($"Удалить абонента {abonent.Fio} ?",
                     "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
