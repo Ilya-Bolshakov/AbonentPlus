@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.label_ID = new System.Windows.Forms.Label();
@@ -43,6 +44,8 @@
             this.label_IncomingDate = new System.Windows.Forms.Label();
             this.dtp_ExecutionDate = new System.Windows.Forms.DateTimePicker();
             this.cb_isExecuted = new System.Windows.Forms.CheckBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Cancel
@@ -81,6 +84,8 @@
             this.tb_ID.Name = "tb_ID";
             this.tb_ID.Size = new System.Drawing.Size(200, 20);
             this.tb_ID.TabIndex = 14;
+            this.tb_ID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ID_KeyPress);
+            this.tb_ID.Validating += new System.ComponentModel.CancelEventHandler(this.tb_ID_Validating);
             // 
             // label_Executor
             // 
@@ -106,6 +111,7 @@
             this.tb_Executor.Name = "tb_Executor";
             this.tb_Executor.Size = new System.Drawing.Size(200, 20);
             this.tb_Executor.TabIndex = 17;
+            this.tb_Executor.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Executor_Validating);
             // 
             // tb_Account
             // 
@@ -113,6 +119,7 @@
             this.tb_Account.Name = "tb_Account";
             this.tb_Account.Size = new System.Drawing.Size(200, 20);
             this.tb_Account.TabIndex = 16;
+            this.tb_Account.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Account_Validating);
             // 
             // label_Failure
             // 
@@ -129,6 +136,7 @@
             this.tb_Failure.Name = "tb_Failure";
             this.tb_Failure.Size = new System.Drawing.Size(200, 20);
             this.tb_Failure.TabIndex = 20;
+            this.tb_Failure.Validating += new System.ComponentModel.CancelEventHandler(this.tb_Failure_Validating);
             // 
             // dtp_IncomingDate
             // 
@@ -161,6 +169,7 @@
             this.dtp_ExecutionDate.Name = "dtp_ExecutionDate";
             this.dtp_ExecutionDate.Size = new System.Drawing.Size(200, 20);
             this.dtp_ExecutionDate.TabIndex = 25;
+            this.dtp_ExecutionDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtp_ExecutionDate_Validating);
             // 
             // cb_isExecuted
             // 
@@ -172,10 +181,15 @@
             this.cb_isExecuted.Text = "is executed?";
             this.cb_isExecuted.UseVisualStyleBackColor = true;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // Form_Request_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(797, 389);
             this.Controls.Add(this.cb_isExecuted);
             this.Controls.Add(this.dtp_ExecutionDate);
@@ -195,6 +209,7 @@
             this.Name = "Form_Request_Edit";
             this.Text = "Form_Request_Edit";
             this.Load += new System.EventHandler(this.Form_Request_Edit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +232,6 @@
         private System.Windows.Forms.Label label_IncomingDate;
         private System.Windows.Forms.DateTimePicker dtp_ExecutionDate;
         private System.Windows.Forms.CheckBox cb_isExecuted;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

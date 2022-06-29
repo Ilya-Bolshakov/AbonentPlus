@@ -108,7 +108,7 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
         {
             if (!tb_Street.Text.All(c => char.IsLetter(c) || c.Equals(' ')))
             {
-                errorProvider.SetError(tb_Street, "В адресе не могут присутстовать символы кроме цифр или букв");
+                errorProvider.SetError(tb_Street, "В адресе не могут присутстовать символы кроме букв");
                 e.Cancel = true;
             }
             else

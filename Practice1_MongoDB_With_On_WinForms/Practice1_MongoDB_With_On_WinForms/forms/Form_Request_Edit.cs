@@ -72,5 +72,87 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
             request.IncomingDate = dtp_IncomingDate.Value;
             request.Executed = cb_isExecuted.Checked;
         }
+
+        private void tb_ID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_ID_Validating(object sender, CancelEventArgs e)
+        {
+            if (_isCreate)
+            {
+                var requests = _context.Load_DataRequest();
+                if (requests.Any(a => a.Id == Convert.ToInt32(tb_ID.Text)))
+                {
+                    errorProvider.SetError(tb_ID, "Такое значение поля ID уже присутствует!");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    errorProvider.SetError(tb_ID, String.Empty);
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        private void tb_Account_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Account.Text.All(c => char.IsLetter(c) || c.Equals('.') || c.Equals(' ')))
+            {
+                errorProvider.SetError(tb_Account, "Могут быть только буквы и символ '.'");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Account, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void tb_Executor_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Executor.Text.All(c => char.IsLetter(c) || c.Equals('.') || c.Equals(' ')))
+            {
+                errorProvider.SetError(tb_Executor, "Могут быть только буквы и символ '.'");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Executor, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void tb_Failure_Validating(object sender, CancelEventArgs e)
+        {
+            if (!tb_Failure.Text.All(c => char.IsLetter(c) || c.Equals('.') || c.Equals(' ')))
+            {
+                errorProvider.SetError(tb_Failure, "Могут быть только буквы и символ '.'");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(tb_Failure, String.Empty);
+                e.Cancel = false;
+            }
+        }
+
+        private void dtp_ExecutionDate_Validating(object sender, CancelEventArgs e)
+        {
+            if (dtp_ExecutionDate.Value < dtp_IncomingDate.Value)
+            {
+                errorProvider.SetError(dtp_ExecutionDate, "Дата выполнения не может быть больше даты поступления");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(dtp_ExecutionDate, String.Empty);
+                e.Cancel = false;
+            }
+        }
     }
 }
