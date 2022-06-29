@@ -32,7 +32,6 @@ namespace Practice1_MongoDB_With_On_WinForms.forms
 
             dataGridView.AutoResizeColumns();
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)

@@ -35,39 +35,46 @@
             // 
             // btn_Form_Abonent
             // 
-            this.btn_Form_Abonent.Location = new System.Drawing.Point(218, 119);
+            this.btn_Form_Abonent.BackColor = System.Drawing.Color.Cyan;
+            this.btn_Form_Abonent.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Form_Abonent.Location = new System.Drawing.Point(52, 130);
             this.btn_Form_Abonent.Name = "btn_Form_Abonent";
-            this.btn_Form_Abonent.Size = new System.Drawing.Size(120, 45);
+            this.btn_Form_Abonent.Size = new System.Drawing.Size(169, 94);
             this.btn_Form_Abonent.TabIndex = 0;
-            this.btn_Form_Abonent.Text = "btn_Form_Abonent";
-            this.btn_Form_Abonent.UseVisualStyleBackColor = true;
+            this.btn_Form_Abonent.Text = "Abonents";
+            this.btn_Form_Abonent.UseVisualStyleBackColor = false;
             this.btn_Form_Abonent.Click += new System.EventHandler(this.btn_Form_Abonent_Click);
             // 
             // btn_Form_Disrepair
             // 
-            this.btn_Form_Disrepair.Location = new System.Drawing.Point(439, 119);
+            this.btn_Form_Disrepair.BackColor = System.Drawing.Color.Cyan;
+            this.btn_Form_Disrepair.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Form_Disrepair.Location = new System.Drawing.Point(552, 130);
             this.btn_Form_Disrepair.Name = "btn_Form_Disrepair";
-            this.btn_Form_Disrepair.Size = new System.Drawing.Size(120, 45);
+            this.btn_Form_Disrepair.Size = new System.Drawing.Size(169, 94);
             this.btn_Form_Disrepair.TabIndex = 1;
-            this.btn_Form_Disrepair.Text = "btn_Form_Disrepair";
-            this.btn_Form_Disrepair.UseVisualStyleBackColor = true;
+            this.btn_Form_Disrepair.Text = "Disrepairs";
+            this.btn_Form_Disrepair.UseVisualStyleBackColor = false;
             this.btn_Form_Disrepair.Click += new System.EventHandler(this.btn_Form_Disrepair_Click);
             // 
             // btn_Form_Request
             // 
-            this.btn_Form_Request.Location = new System.Drawing.Point(335, 231);
+            this.btn_Form_Request.BackColor = System.Drawing.Color.Cyan;
+            this.btn_Form_Request.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Form_Request.Location = new System.Drawing.Point(302, 130);
             this.btn_Form_Request.Name = "btn_Form_Request";
-            this.btn_Form_Request.Size = new System.Drawing.Size(120, 45);
+            this.btn_Form_Request.Size = new System.Drawing.Size(169, 94);
             this.btn_Form_Request.TabIndex = 2;
-            this.btn_Form_Request.Text = "btn_Form_Request";
-            this.btn_Form_Request.UseVisualStyleBackColor = true;
+            this.btn_Form_Request.Text = "Requestes";
+            this.btn_Form_Request.UseVisualStyleBackColor = false;
             this.btn_Form_Request.Click += new System.EventHandler(this.btn_Form_Request_Click);
             // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(801, 366);
             this.Controls.Add(this.btn_Form_Request);
             this.Controls.Add(this.btn_Form_Disrepair);
             this.Controls.Add(this.btn_Form_Abonent);
