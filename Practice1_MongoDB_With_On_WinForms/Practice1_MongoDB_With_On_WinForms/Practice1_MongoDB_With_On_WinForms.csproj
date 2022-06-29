@@ -165,6 +165,12 @@
     <Compile Include="forms\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\Form_Request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Form_Request.Designer.cs">
+      <DependentUpon>Form_Request.cs</DependentUpon>
+    </Compile>
     <Compile Include="models\Abonent.cs" />
     <Compile Include="models\Disrepair.cs" />
     <Compile Include="models\Request.cs" />
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Form_Request.resx">
+      <DependentUpon>Form_Request.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

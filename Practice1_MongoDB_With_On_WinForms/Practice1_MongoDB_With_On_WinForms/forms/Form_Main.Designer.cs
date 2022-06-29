@@ -30,6 +30,7 @@
         {
             this.btn_Form_Abonent = new System.Windows.Forms.Button();
             this.btn_Form_Disrepair = new System.Windows.Forms.Button();
+            this.btn_Form_Request = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Form_Abonent
@@ -52,11 +53,22 @@
             this.btn_Form_Disrepair.UseVisualStyleBackColor = true;
             this.btn_Form_Disrepair.Click += new System.EventHandler(this.btn_Form_Disrepair_Click);
             // 
+            // btn_Form_Request
+            // 
+            this.btn_Form_Request.Location = new System.Drawing.Point(335, 231);
+            this.btn_Form_Request.Name = "btn_Form_Request";
+            this.btn_Form_Request.Size = new System.Drawing.Size(120, 45);
+            this.btn_Form_Request.TabIndex = 2;
+            this.btn_Form_Request.Text = "btn_Form_Request";
+            this.btn_Form_Request.UseVisualStyleBackColor = true;
+            this.btn_Form_Request.Click += new System.EventHandler(this.btn_Form_Request_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Form_Request);
             this.Controls.Add(this.btn_Form_Disrepair);
             this.Controls.Add(this.btn_Form_Abonent);
             this.Name = "Form_Main";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button btn_Form_Abonent;
         private System.Windows.Forms.Button btn_Form_Disrepair;
+        private System.Windows.Forms.Button btn_Form_Request;
     }
 }
